@@ -1,16 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:background="@drawable/borrow_background">
+    android:background="@drawable/borrow_background"
+    android:padding="16dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="116dp"
-        android:text="Borrow Activity"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Permit To Borrow Form"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="16dp"/>
+
+        <!-- Date -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date:"
+            android:textSize="16sp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#000"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Department -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Department:"
+            android:textSize="16sp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#000"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Name of Requesting -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name of Requesting:"
+            android:textSize="16sp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#000"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Sir/Madam text -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sir/Madam:"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:paddingBottom="4dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="I would like to request for the following items:"
+            android:textSize="14sp"
+            android:paddingBottom="16dp"/>
+
+        <!-- Project details -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name of Project:"
+            android:textSize="16sp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#000"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date and Time Project:"
+            android:textSize="16sp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#000"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Venue:"
+            android:textSize="16sp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#000"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Table of items -->
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+            android:background="#FFFFFF"
+            android:padding="4dp">
+
+            <!-- Header row -->
+            <TableRow>
+                <TextView android:layout_weight="1" android:text="Qty" android:padding="4dp" android:textStyle="bold"/>
+                <TextView android:layout_weight="2" android:text="Description" android:padding="4dp" android:textStyle="bold"/>
+                <TextView android:layout_weight="2" android:text="Date of Transfer" android:padding="4dp" android:textStyle="bold"/>
+                <TextView android:layout_weight="1" android:text="From" android:padding="4dp" android:textStyle="bold"/>
+                <TextView android:layout_weight="1" android:text="To" android:padding="4dp" android:textStyle="bold"/>
+                <TextView android:layout_weight="2" android:text="Date of Return" android:padding="4dp" android:textStyle="bold"/>
+                <TextView android:layout_weight="2" android:text="Remarks" android:padding="4dp" android:textStyle="bold"/>
+            </TableRow>
+
+            <!-- Example empty row (you can repeat or generate dynamically) -->
+            <TableRow>
+
+                <EditText
+                    android:layout_weight="1"
+                    android:hint="Q"
+                    android:minHeight="48dp"
+                    android:padding="4dp"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <EditText
+                    android:layout_weight="2"
+                    android:hint="Desc"
+                    android:minHeight="48dp"
+                    android:padding="4dp" />
+
+                <EditText
+                    android:layout_weight="2"
+                    android:hint="MM/DD"
+                    android:minHeight="48dp"
+                    android:padding="4dp" />
+
+                <EditText
+                    android:layout_weight="1"
+                    android:hint="From"
+                    android:padding="4dp"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <EditText
+                    android:layout_weight="1"
+                    android:hint="To"
+                    android:padding="4dp"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <EditText
+                    android:layout_weight="2"
+                    android:hint="MM/DD"
+                    android:minHeight="48dp"
+                    android:padding="4dp" />
+                <EditText android:layout_weight="2" android:hint="Remarks" android:padding="4dp"/>
+            </TableRow>
+        </TableLayout>
+
+        <!-- Submit button -->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"/>
+    </LinearLayout>
+</ScrollView>
