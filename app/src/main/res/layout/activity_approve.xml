@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/gg_background">
 
     <LinearLayout
         android:orientation="vertical"
@@ -9,76 +10,93 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
+        <!-- Header -->
         <TextView
-            android:text="Permit To Borrow Request \nAPPROVED "
-            android:textAlignment="center"
-            android:textSize="18sp"
-            android:paddingTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="Permit To Transfer Form"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:padding="12dp" />
 
+        <!-- Form Fields -->
         <TextView android:text="Date:"/>
         <EditText android:id="@+id/etDate" android:hint="MM/DD/YYYY"
             android:layout_width="match_parent" android:layout_height="wrap_content"/>
 
         <TextView android:text="Department:"/>
-        <EditText android:id="@+id/etDepartment" android:hint="e.g. CCIS"
+        <EditText android:id="@+id/etDepartment"
             android:layout_width="match_parent" android:layout_height="wrap_content"/>
 
         <TextView android:text="Name of Requesting:"/>
-        <EditText android:id="@+id/etRequester" android:hint="e.g. Irish Rocha"
+        <EditText android:id="@+id/etRequester"
             android:layout_width="match_parent" android:layout_height="wrap_content"/>
 
-        <TextView android:text="Name of Project:"/>
-        <EditText android:id="@+id/etProject" android:hint="e.g. Umak Jam"
-            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <!-- Request Types -->
+        <TextView android:text="Sir/Madam:" android:textStyle="bold" android:paddingTop="8dp"/>
+        <TextView android:text="I would like to request for the following items:"/>
 
-        <TextView android:text="Date and Time of Project:"/>
-        <EditText android:id="@+id/etDateTime" android:hint="MM/DD/YYYY"
-            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <CheckBox android:id="@+id/cbTransfer" android:text="Transfer / Relocation"/>
+        <CheckBox android:id="@+id/cbPullout1" android:text="Pull-out / Return"/>
+        <CheckBox android:id="@+id/cbPullout2" android:text="Pull-out / Return"/>
+        <CheckBox android:id="@+id/cbFiling" android:text="Filing Cabinets/Shelves"/>
 
-        <TextView android:text="Venue:"/>
-        <EditText android:id="@+id/etVenue" android:hint="e.g. Umak Oval"
-            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
 
-        <!-- Table Section -->
-        <TextView android:text="Items:" android:textStyle="bold" android:paddingTop="16dp"/>
-        <TableLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            <CheckBox android:id="@+id/cbOther" android:text="Other:"/>
+
+            <EditText
+                android:id="@+id/etOther"
+                android:hint="Specify"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="8dp"/>
+        </LinearLayout>
+
+        <!-- Table Header -->
+        <TextView android:text="Item Details:" android:textStyle="bold" android:paddingTop="12dp"/>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:stretchColumns="*">
 
             <TableRow>
-                <TextView android:text="Qty" android:textStyle="bold"/>
-                <TextView android:text="Description" android:textStyle="bold"/>
-                <TextView android:text="Date of Transfer" android:textStyle="bold"/>
-                <TextView android:text="From" android:textStyle="bold"/>
-                <TextView android:text="To" android:textStyle="bold"/>
-                <TextView android:text="Date of Return" android:textStyle="bold"/>
-                <TextView android:text="Remarks" android:textStyle="bold"/>
+                <TextView android:text="Qty" style="@style/TableHeader"/>
+                <TextView android:text="Description" style="@style/TableHeader"/>
+                <TextView android:text="Date of Transfer" style="@style/TableHeader"/>
+                <TextView android:text="Location From" style="@style/TableHeader"/>
+                <TextView android:text="Location To" style="@style/TableHeader"/>
+                <TextView android:text="Remarks" style="@style/TableHeader"/>
             </TableRow>
 
             <TableRow>
-                <EditText android:id="@+id/etQty" android:hint="2"/>
-                <EditText android:id="@+id/etDesc" android:hint="Farlight"/>
-                <EditText android:id="@+id/etTransfer" android:hint="05/13/2025"/>
-                <EditText android:id="@+id/etFrom" android:hint=""/>
-                <EditText android:id="@+id/etTo" android:hint=""/>
-                <EditText android:id="@+id/etReturn" android:hint="05/15/2025"/>
-                <EditText android:id="@+id/etRemarks" android:hint=""/>
+                <EditText android:id="@+id/etQty"/>
+                <EditText android:id="@+id/etDesc"/>
+                <EditText android:id="@+id/etTransferDate"/>
+                <EditText android:id="@+id/etFrom"/>
+                <EditText android:id="@+id/etTo"/>
+                <EditText android:id="@+id/etRemarks"/>
             </TableRow>
         </TableLayout>
 
-        <TextView
-            android:text="APPROVED BY:"
-            android:paddingTop="16dp"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <EditText android:id="@+id/etApprover"
-            android:hint="e.g. EFREN KIM MENDOZA"
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/btnSubmit"
+            android:text="Submit"
+            android:layout_marginTop="16dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
+            android:layout_height="wrap_content"
+            android:backgroundTint="#D6C4F3"
+            android:textColor="#000000"
+            android:textStyle="bold" />
     </LinearLayout>
 </ScrollView>
+
